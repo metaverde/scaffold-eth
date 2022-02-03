@@ -28,16 +28,47 @@ const ipfs = ipfsAPI({host: 'ipfs.infura.io', port: '5001', protocol: 'https' })
 
 console.log("📦 Assets: ",assets)
 
+<<<<<<< HEAD
 
+=======
+/*
+    Welcome to 🏗 scaffold-eth !
+
+    Code:
+    https://github.com/austintgriffith/scaffold-eth
+
+    Support:
+    https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA
+    or DM @austingriffith on twitter or telegram
+
+    You should get your own Infura.io ID and put it in `constants.js`
+    (this is your connection to the main Ethereum network for ENS etc.)
+
+
+    🌏 EXTERNAL CONTRACTS:
+    You can also bring in contract artifacts in `constants.js`
+    (and then use the `useExternalContractLoader()` hook!)
+*/
+
+
+/// 📡 What chain are your contracts deployed to?
+>>>>>>> 4df942f40af42cc393115b03d8bebf069a1b2093
 const targetNetwork = NETWORKS['localhost']; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
 const DEBUG = true
 
+<<<<<<< HEAD
 
 const STARTING_JSON = {
   "description": "It's actually a bison?",
   "external_url": "https://austingriffith.com/portfolio/paintings/",
+=======
+//EXAMPLE STARTING JSON:
+const STARTING_JSON = {
+  "description": "It's actually a bison?",
+  "external_url": "https://austingriffith.com/portfolio/paintings/",// <-- this can link to a page for the specific file too
+>>>>>>> 4df942f40af42cc393115b03d8bebf069a1b2093
   "image": "https://austingriffith.com/images/paintings/buffalo.jpg",
   "name": "Buffalo",
   "attributes": [
@@ -65,6 +96,7 @@ const getFromIPFS = async hashToGet => {
     return content
   }
 }
+<<<<<<< HEAD
 
 // 🛰 providers
 if(DEBUG) console.log("📡 Connecting to Mainnet Ethereum");
@@ -90,6 +122,33 @@ const blockExplorer = targetNetwork.blockExplorer;
 
 function App(props) {
 
+=======
+
+// 🛰 providers
+if(DEBUG) console.log("📡 Connecting to Mainnet Ethereum");
+// const mainnetProvider = getDefaultProvider("mainnet", { infura: INFURA_ID, etherscan: ETHERSCAN_KEY, quorum: 1 });
+// const mainnetProvider = new InfuraProvider("mainnet",INFURA_ID);
+//
+// attempt to connect to our own scaffold eth rpc and if that fails fall back to infura...
+const scaffoldEthProvider = new JsonRpcProvider("https://rpc.scaffoldeth.io:48544")
+const mainnetInfura = new JsonRpcProvider("https://mainnet.infura.io/v3/" + INFURA_ID)
+// ( ⚠️ Getting "failed to meet quorum" errors? Check your INFURA_I
+
+// 🏠 Your local provider is usually pointed at your local blockchain
+const localProviderUrl = targetNetwork.rpcUrl;
+// as you deploy to other networks you can set REACT_APP_PROVIDER=https://dai.poa.network in packages/react-app/.env
+const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
+if(DEBUG) console.log("🏠 Connecting to provider:", localProviderUrlFromEnv);
+const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
+
+
+// 🔭 block explorer URL
+const blockExplorer = targetNetwork.blockExplorer;
+
+
+function App(props) {
+
+>>>>>>> 4df942f40af42cc393115b03d8bebf069a1b2093
   const mainnetProvider = (scaffoldEthProvider && scaffoldEthProvider._network) ? scaffoldEthProvider : mainnetInfura
   if(DEBUG) console.log("🌎 mainnetProvider",mainnetProvider)
 
@@ -155,6 +214,8 @@ function App(props) {
   console.log("📟 Transfer events:",transferEvents)
 
   const actionEvents = useEventListener(readContracts, "YourCollectible", "Action", localProvider, 1);
+<<<<<<< HEAD
+=======
 
   const totalPrice = useContractReader(readContracts,"YourCollectible", "price")
 
@@ -192,6 +253,47 @@ function App(props) {
     }
     updateYourCollectibles()
   },[ address, yourBalance ])
+>>>>>>> 4df942f40af42cc393115b03d8bebf069a1b2093
+
+  const totalPrice = useContractReader(readContracts,"YourCollectible", "price")
+
+<<<<<<< HEAD
+  //
+  // 🧠 This effect will update yourCollectibles by polling when your balance changes
+  //
+  const yourBalance = balance && balance.toNumber && balance.toNumber()
+  const [ yourCollectibles, setYourCollectibles ] = useState()
+
+  useEffect(()=>{
+    const updateYourCollectibles = async () => {
+      let collectibleUpdate = []
+      for(let tokenIndex=0;tokenIndex<balance;tokenIndex++){
+        try{
+          console.log("GEtting token index",tokenIndex)
+          const tokenId = await readContracts.YourCollectible.tokenOfOwnerByIndex(address, tokenIndex)
+          console.log("tokenId",tokenId)
+          const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId)
+          console.log("tokenURI",tokenURI)
+
+          const ipfsHash =  tokenURI.replace("https://ipfs.io/ipfs/","")
+          console.log("ipfsHash",ipfsHash)
+
+          const jsonManifestBuffer = await getFromIPFS(ipfsHash)
+
+          try{
+            const jsonManifest = JSON.parse(jsonManifestBuffer.toString())
+            console.log("jsonManifest",jsonManifest)
+            collectibleUpdate.push({ id:tokenId, uri:tokenURI, owner: address, ...jsonManifest })
+          }catch(e){console.log(e)}
+
+        }catch(e){console.log(e)}
+      }
+      setYourCollectibles(collectibleUpdate)
+    }
+    updateYourCollectibles()
+  },[ address, yourBalance ])
+=======
+>>>>>>> 4df942f40af42cc393115b03d8bebf069a1b2093
 
   let networkDisplay = ""
   if(localChainId && selectedChainId && localChainId != selectedChainId ){
@@ -386,8 +488,16 @@ function App(props) {
             <Link onClick={()=>{setRoute("/transfers")}} to="/transfers">Pangolin Movement</Link>
           </Menu.Item>
           <Menu.Item key="/ipfsup">
+<<<<<<< HEAD
             <Link onClick={()=>{setRoute("/ipfsup")}} to="/ipfsup">RollyPolyPangolin Vendomatic</Link>
           </Menu.Item>
+=======
+            <Link onClick={()=>{setRoute("/ipfsup")}} to="/ipfsup">Honeysweet Vendomatic</Link>
+          </Menu.Item>
+          {/* <Menu.Item key="/ipfsdown">
+            <Link onClick={()=>{setRoute("/ipfsdown")}} to="/ipfsdown">IPFS Download</Link>
+          </Menu.Item> */}
+>>>>>>> 4df942f40af42cc393115b03d8bebf069a1b2093
           <Menu.Item key="/debugcontracts">
             <Link onClick={()=>{setRoute("/debugcontracts")}} to="/debugcontracts">Debug Contracts</Link>
           </Menu.Item>
@@ -515,7 +625,71 @@ function App(props) {
             </div>
           </Route>
 
+<<<<<<< HEAD
           
+=======
+          {/* <Route path="/ipfsup">
+            <div style={{ paddingTop:32, width:740, margin:"auto", textAlign:"left" }}>
+              <ReactJson
+                style={{ padding:8 }}
+                src={yourJSON}
+                theme={"pop"}
+                enableClipboard={false}
+                onEdit={(edit,a)=>{
+                  setYourJSON(edit.updated_src)
+                }}
+                onAdd={(add,a)=>{
+                  setYourJSON(add.updated_src)
+                }}
+                onDelete={(del,a)=>{
+                  setYourJSON(del.updated_src)
+                }}
+              />
+            </div>
+
+            <Button style={{margin:8}} loading={sending} size="large" shape="round" type="primary" onClick={async()=>{
+                console.log("UPLOADING...",yourJSON)
+                setSending(true)
+                setIpfsHash()
+                const result = await ipfs.add(JSON.stringify(yourJSON))//addToIPFS(JSON.stringify(yourJSON))
+                if(result && result.path) {
+                  setIpfsHash(result.path)
+                }
+                setSending(false)
+                console.log("RESULT:",result)
+            }}>Upload to IPFS</Button>
+
+            <div  style={{padding:16,paddingBottom:150}}>
+              {ipfsHash}
+            </div>
+
+          </Route> */}
+          {/* <Route path="/ipfsdown">
+              <div style={{ paddingTop:32, width:740, margin:"auto" }}>
+                <Input
+                  value={ipfsDownHash}
+                  placeHolder={"IPFS hash (like QmadqNw8zkdrrwdtPFK1pLi8PPxmkQ4pDJXY8ozHtz6tZq)"}
+                  onChange={(e)=>{
+                    setIpfsDownHash(e.target.value)
+                  }}
+                />
+              </div>
+              <Button style={{margin:8}} loading={sending} size="large" shape="round" type="primary" onClick={async()=>{
+                  console.log("DOWNLOADING...",ipfsDownHash)
+                  setDownloading(true)
+                  setIpfsContent()
+                  const result = await getFromIPFS(ipfsDownHash)//addToIPFS(JSON.stringify(yourJSON))
+                  if(result && result.toString) {
+                    setIpfsContent(result.toString())
+                  }
+                  setDownloading(false)
+              }}>Download from IPFS</Button>
+
+              <pre  style={{padding:16, width:500, margin:"auto",paddingBottom:150}}>
+                {ipfsContent}
+              </pre>
+          </Route> */}
+>>>>>>> 4df942f40af42cc393115b03d8bebf069a1b2093
           <Route path="/debugcontracts">
               <Contract
                 name="YourCollectible"
