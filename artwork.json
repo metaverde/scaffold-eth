@@ -1,42 +1,45 @@
+
+  
 [
   {
-    "name": "Buffalo",
-    "description": "It's actually a bison?",
-    "external_url": "https://austingriffith.com/portfolio/paintings/?id=buffalo",
-    "image": "https://austingriffith.com/images/paintings/buffalo.jpg",
-    "attributes": [
-      {
-        "trait_type": "BackgroundColor",
-        "value": "green"
-      },
-      {
-        "trait_type": "Eyes",
-        "value": "googly"
-      },
-      {
-        "trait_type": "Stamina",
-        "value": 42
-      }
-    ]
+    "name": "Ethereal",
+    "description": "Send Vitalik his Zebra!",
+    "external_url": "https://gateway.pinata.cloud/ipfs/QmNmUnJfh4nTE8kRs3Fy7e4DUW2Ymapa9nW8Y9QpCkrq6R/polkadotzebra.jpg",
+    "image": "https://gateway.pinata.cloud/ipfs/QmNmUnJfh4nTE8kRs3Fy7e4DUW2Ymapa9nW8Y9QpCkrq6R/polkadotzebra.jpg"
+    
   },
   {
-    "name": "Zebra",
-    "description": "What is it so worried about?",
-    "external_url": "https://austingriffith.com/portfolio/paintings/?id=zebra",
-    "image": "https://austingriffith.com/images/paintings/zebra.jpg",
-    "attributes": [
-      {
-        "trait_type": "BackgroundColor",
-        "value": "blue"
-      },
-      {
-        "trait_type": "Eyes",
-        "value": "googly"
-      },
-      {
-        "trait_type": "Stamina",
-        "value": 38
-      }
-    ]
+    "name": "Pangolin",
+    "description": "Not food!",
+    "external_url": "https://gateway.pinata.cloud/ipfs/QmNmd8N2USeikeUau9o6TTpbKVkMK5kUN345nsjdqHbayN/pangolin.jpg",
+    "image": "https://gateway.pinata.cloud/ipfs/QmNmd8N2USeikeUau9o6TTpbKVkMK5kUN345nsjdqHbayN/pangolin.jpg"
+    
+  },
+  {
+    "name": "Another Pangolin",
+    "description": "On the prowl.",
+    "external_url": "https://gateway.pinata.cloud/ipfs/QmNmd8N2USeikeUau9o6TTpbKVkMK5kUN345nsjdqHbayN/pangolin1.jpg",
+    "image": "https://gateway.pinata.cloud/ipfs/QmNmd8N2USeikeUau9o6TTpbKVkMK5kUN345nsjdqHbayN/pangolin1.jpg"
+    
+  },
+  {
+    "name": "Nightmare Elk",
+    "description": "Still too soon.",
+    "external_url": "https://gateway.pinata.cloud/ipfs/QmNmUnJfh4nTE8kRs3Fy7e4DUW2Ymapa9nW8Y9QpCkrq6R/nightmareelk.jpg",
+    "image": "https://gateway.pinata.cloud/ipfs/QmNmUnJfh4nTE8kRs3Fy7e4DUW2Ymapa9nW8Y9QpCkrq6R/nightmareelk.jpg"
+    
+  },
+  {
+    "name": "Baby Tail",
+    "description": "Will it scale?",
+    "external_url": "https://gateway.pinata.cloud/ipfs/QmNmUnJfh4nTE8kRs3Fy7e4DUW2Ymapa9nW8Y9QpCkrq6R/pangbabytail.jpg",
+    "image": "https://gateway.pinata.cloud/ipfs/QmNmUnJfh4nTE8kRs3Fy7e4DUW2Ymapa9nW8Y9QpCkrq6R/pangbabytail.jpg"
+       
+  },
+  {
+    "name": "Rolly Poly",
+    "description": "Pangolin.",
+    "external_url": "https://gateway.pinata.cloud/ipfs/QmNmUnJfh4nTE8kRs3Fy7e4DUW2Ymapa9nW8Y9QpCkrq6R/rollingpang.jpg",
+    "image": "https://gateway.pinata.cloud/ipfs/QmNmUnJfh4nTE8kRs3Fy7e4DUW2Ymapa9nW8Y9QpCkrq6R/rollingpang.jpg"
   }
 ]
