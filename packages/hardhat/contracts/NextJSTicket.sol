@@ -14,7 +14,7 @@ contract NextJSTicket is ERC721, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    constructor() public ERC721("Guillermo’s Ticket", "GT") {
+    constructor() public ERC721("Guillermo/’s Ticket", "GT") {
         _setBaseURI("https://gateway.pinata.cloud/ipfs/");
     }
 
