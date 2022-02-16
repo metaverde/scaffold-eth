@@ -453,7 +453,7 @@ function App(props) {
               }}
               to="/"
             >
-              YourContract
+              Dexterity
             </Link>
           </Menu.Item>
           <Menu.Item key="/contracts">
