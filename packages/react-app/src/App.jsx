@@ -472,7 +472,7 @@ function App(props) {
           <Route exact path="/">
 
             {/* Uncomment below to view front end */}
-            {/* { readContracts && readContracts.DEX && address && localProvider ?
+            { readContracts && readContracts.DEX && address && localProvider ?
                 <Dex
               address={address}
               tx={tx}
@@ -486,7 +486,7 @@ function App(props) {
               signer={userSigner}
               price={price}
             /> : ""
-             }  */}
+             }  
            
           </Route>
 
